@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ruptures — La Coursive des Alpes</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#141110">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ruptures">
+<link rel="icon" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <img class="top-logo" src="assets/logo-or.png" alt="">
+    <div class="top-title">
+      <h1>La Coursive</h1>
+      <p>Ruptures du jour</p>
+    </div>
+    <button id="statusBtn" class="status" type="button" aria-label="Réglages de la sauvegarde">
+      <span class="dot"></span><span class="txt">…</span>
+    </button>
+  </div>
+
+  <div class="search">
+    <svg class="search-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="q" type="search" placeholder="Rechercher un plat, un vin…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Rechercher">
+    <button id="qClear" class="search-clear" type="button" aria-label="Effacer la recherche" hidden>✕</button>
+  </div>
+
+  <nav id="chips" class="chips" aria-label="Filtrer par carte"></nav>
+</header>
+
+<main>
+  <p id="count" class="count" aria-live="polite"></p>
+  <div id="list" class="list">
+    <div class="empty">Chargement de la carte…</div>
+  </div>
+</main>
+
+<div id="bar" class="bar" hidden>
+  <button id="undoBtn" class="bar-undo" type="button">Annuler</button>
+  <button id="saveBtn" class="bar-save" type="button">Enregistrer</button>
+</div>
+
+<!-- Réglages : jeton GitHub (partagé avec l'éditeur, même site) -->
+<div id="sheet" class="sheet-backdrop" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-grip"></div>
+    <h2 id="sheetTitle">Activer la sauvegarde</h2>
+    <p>Pour masquer un plat, ce téléphone doit être autorisé une fois. Le plus simple&nbsp;: ouvrez sur ce téléphone le <b>lien magique</b> copié depuis l'éditeur (⚙️ → ✨ Copier le lien magique). Il vaut aussi pour cette page.</p>
+    <p class="muted">Ou collez le jeton GitHub ci-dessous&nbsp;:</p>
+    <form id="tokenForm">
+      <input id="tokenInput" type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
+      <button type="submit" class="btn-primary">Enregistrer le jeton</button>
+    </form>
+    <div id="magicBox" class="magic" hidden>
+      <button id="copyMagic" type="button" class="btn-ghost">✨ Copier le lien magique de cette page</button>
+      <input id="magicText" type="text" readonly hidden>
+    </div>
+    <a class="sheet-link" href="https://viktor-guignard.github.io/la-coursive-carte/" target="_blank" rel="noopener">Ouvrir l'éditeur complet ↗</a>
+    <a class="sheet-link" href="https://viktor-guignard.github.io/la-coursive-carte/carte.html" target="_blank" rel="noopener">Voir la carte des clients (QR) ↗</a>
+    <button id="sheetClose" type="button" class="btn-ghost sheet-close">Fermer</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script src="gh.js?v=1"></script>
+<script src="app.js?v=2"></script>
+</body>
+</html>
